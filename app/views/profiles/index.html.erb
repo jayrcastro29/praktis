@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Profile</h1>
+
+<table>
+  <thead>
+    
+<%if !current_user.profile.nil? %>
+      <tr>
+        <td><b>Name</b></td>
+        <td><%= current_user.profile.name %></td>
+      </tr>
+        <td><b>Gender</b></td> 
+        <td><%= current_user.profile.gender %></td>
+      </tr>
+ 
+  </thead>
+
+  <tbody>
+       <td><%= link_to 'Update', edit_profile_path(current_user.profile) %></td>
+    <%# @profiles.each do |profile| %>    
+       <!--  <td><%= current_user.profile.user_id %></td> -->
+      <!--   <td><%#= link_to 'Show', current_user.profile %></td> -->
+     
+<!--         <td><%#= link_to 'Destroy', current_user.profile, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <%# end %>
+
+    <% else %>  
+      <tr> 
+       <td><b>Name</b></td> </tr>
+       <tr>      
+        <td><b>Gender</b></td> </tr> 
+      
+    <td><%= link_to 'Update', new_profile_path %></td>
+<%end %>  
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'Update Profile', new_profile_path %>
